@@ -1,0 +1,20 @@
+.toggleBtn {
+  cursor: pointer;
+  padding: 0;
+  color: #fff;
+  margin: 1.5rem 4.5rem;
+  display: none;
+  transition: all ease-in-out 0.6s;
+}
+
+@media screen and (max-width: 600px) {
+  .toggleBtn {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .toggleBtn {
+    margin: 1.5rem 3rem;
+  }
+}

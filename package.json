@@ -1,0 +1,47 @@
+{
+  "name": "listit",
+  "version": "1.0.0",
+  "description": "An application that enables users to create and manage their bucket lists.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run client-install && npm run client-build",
+    "client-install": "npm install --prefix client",
+    "client-build": "npm run build --prefix client",
+    "start-client:dev": "npm start --prefix client",
+    "start-server:dev": "nodemon --exec babel-node server",
+    "build": "npm run clean && babel server -d dist",
+    "clean": "rm -rf dist",
+    "start": "node dist/index.js",
+    "dev": "concurrently \"npm run start-client:dev\" \"npm run start-server:dev\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daylay92/ListIt.git"
+  },
+  "keywords": [
+    "bucketlist",
+    "goals",
+    "plan",
+    "adventure"
+  ],
+  "author": "Ayodele Akinbohun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daylay92/ListIt/issues"
+  },
+  "homepage": "https://github.com/daylay92/ListIt#readme",
+  "dependencies": {
+    "concurrently": "^4.1.2",
+    "dotenv": "^8.1.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/node": "^7.6.2",
+    "@babel/preset-env": "^7.6.2"
+  }
+}

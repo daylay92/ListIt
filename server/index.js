@@ -3,7 +3,7 @@ import express from 'express';
 import { json, urlencoded } from 'express';
 import { join } from 'path';
 import morgan from 'morgan';
-import errorHandler from 'errorHandler';
+import errorHandler from 'errorhandler';
 
 const { NODE_ENV, PORT } = process.env;
 
@@ -21,9 +21,9 @@ if (NODE_ENV === 'production') {
   const clientDir = join(__dirname, '../client/build');
   app.use(express.static(clientDir));
   app.get('*', (req, res) => res.sendFile(clientDir + 'index.html'));
-} else
+}
 // Handle Errors on dev & test env only
-  app.use(errorHandler());
+else app.use(errorHandler());
 
 // Handle all Requests not Handled by the above routes
 // For server-side use only

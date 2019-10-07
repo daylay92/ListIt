@@ -4,6 +4,8 @@ import { json, urlencoded } from 'express';
 import { join } from 'path';
 import morgan from 'morgan';
 import errorHandler from 'errorhandler';
+import DB from './database';
+import routes from './routes';
 
 const { NODE_ENV, PORT } = process.env;
 
@@ -14,6 +16,9 @@ const app = express();
 app.use(morgan('dev'));
 app.use(json());
 app.use(urlencoded({ extended: true }));
+
+//routes
+routes(app);
 
 //Serve static assets on production
 
@@ -42,6 +47,17 @@ app.use((err, req, res, next) => {
 const port = PORT || 3000;
 
 //listen for requests
-app.listen(port, () => {
-  console.log(`Amazing Stuff is Happening on: ${port}`);
-});
+(async () => {
+  try {
+    const db = await DB.connect();
+    const port = PORT || 3000;
+    app.listen(port, () => {
+      console.log(`Amazing Stuff is Happening on: ${port}`);
+    });
+    db.on('error', () => {
+      console.log(err);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+})();

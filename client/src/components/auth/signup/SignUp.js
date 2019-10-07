@@ -17,7 +17,7 @@ class SignUp extends Component {
         {
           rules: {
             required: true,
-            maxLength: 10,
+            maxLength: 15,
             minLength: 2,
             isAlphabetOnly: true
           },
@@ -34,7 +34,7 @@ class SignUp extends Component {
         {
           rules: {
             required: true,
-            maxLength: 10,
+            maxLength: 15,
             minLength: 2,
             isAlphabetOnly: true
           },

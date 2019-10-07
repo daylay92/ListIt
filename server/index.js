@@ -5,6 +5,7 @@ import { join } from 'path';
 import morgan from 'morgan';
 import errorHandler from 'errorhandler';
 import DB from './database';
+import routes from './routes';
 
 const { NODE_ENV, PORT } = process.env;
 
@@ -15,6 +16,9 @@ const app = express();
 app.use(morgan('dev'));
 app.use(json());
 app.use(urlencoded({ extended: true }));
+
+//routes
+routes(app);
 
 //Serve static assets on production
 

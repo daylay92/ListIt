@@ -4,6 +4,7 @@ import { json, urlencoded } from 'express';
 import { join } from 'path';
 import morgan from 'morgan';
 import errorHandler from 'errorhandler';
+import DB from './database';
 
 const { NODE_ENV, PORT } = process.env;
 
@@ -42,6 +43,17 @@ app.use((err, req, res, next) => {
 const port = PORT || 3000;
 
 //listen for requests
-app.listen(port, () => {
-  console.log(`Amazing Stuff is Happening on: ${port}`);
-});
+(async () => {
+  try {
+    const db = await DB.connect();
+    const port = PORT || 3000;
+    app.listen(port, () => {
+      console.log(`Amazing Stuff is Happening on: ${port}`);
+    });
+    db.on('error', () => {
+      console.log(err);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+})();

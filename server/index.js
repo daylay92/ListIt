@@ -3,6 +3,7 @@ import express from 'express';
 import { json, urlencoded } from 'express';
 import { join } from 'path';
 import morgan from 'morgan';
+import cors from 'cors';
 import errorHandler from 'errorhandler';
 import DB from './database';
 import routes from './routes';
@@ -16,7 +17,8 @@ const app = express();
 app.use(morgan('dev'));
 app.use(json());
 app.use(urlencoded({ extended: true }));
-
+// if(NODE_ENV === 'development')
+app.use(cors());
 //routes
 routes(app);
 

@@ -10,3 +10,5 @@ To enable anyone keep a record of their goals and to help them articulate the jo
 - MongoDB
 - React 
 
+## Getting Started
+To get a head start, checkout the App [here](https://list-i-t.herokuapp.com/).

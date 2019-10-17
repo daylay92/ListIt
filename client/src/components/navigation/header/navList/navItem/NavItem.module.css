@@ -20,7 +20,7 @@
 .navbar__list-item a:hover,
 .navbar__list-item a:active,
 .navbar__list-item a.active,.activeLink {
-  color: #4d4d4d !important;
+  color: #344563 !important;
 }
 
 @media screen and (max-width: 600px) {

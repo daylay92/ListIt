@@ -1,0 +1,27 @@
+.dropDown {
+  display: none;
+  flex-direction: column;
+  min-width: 100%;
+  padding: 1rem 0 0.6rem 0;
+}
+.search {
+  display: flex;
+  margin-bottom: 10px;
+}
+.searchBar {
+  width: 80% !important;
+  margin: auto;
+}
+.searchBar input {
+  font-size: 12px !important;
+}
+@media screen and (max-width: 600px) {
+  .dropDown {
+    display: flex;
+  }
+}
+@media screen and (max-width: 340px) {
+  .searchBar input {
+    font-size: 10px !important;
+  }
+}

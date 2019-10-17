@@ -1,0 +1,58 @@
+.profileList {
+  display: flex;
+  padding: 0;
+  width: 190px;
+  max-height: 120px;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.31) 0px 0px 1px;
+  border-radius: 5px;
+  position: fixed;
+  top: 60px;
+  right: 10px;
+}
+.profileList ul {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.profileList li {
+  margin-top: 5px;
+}
+.profileList li + .profileList li {
+  margin-top: 8px;
+}
+.profileList li a {
+  color: #3c5074;
+  font-size: 12px;
+  font-weight: 300;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+}
+.profileList li a:hover,
+.profileList li a:active {
+  color: #050b14;
+}
+.profile-info {
+  background: #2aa287;
+  padding: 10px;
+  color: #fff;
+}
+.profile-info p {
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+}
+.profile-info span {
+  font-size: 0.6rem;
+  font-weight: 100;
+  margin-top: 3px;
+  display: block;
+}
+@media screen and (max-width: 600px) {
+  .profileList {
+    display: none;
+  }
+}

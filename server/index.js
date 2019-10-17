@@ -19,7 +19,7 @@ const app = express();
 app.use(morgan('dev'));
 app.use(json());
 app.use(urlencoded({ extended: true }));
-// if(NODE_ENV === 'development')
+if(NODE_ENV === 'development')
 app.use(cors());
 //routes
 routes(app);

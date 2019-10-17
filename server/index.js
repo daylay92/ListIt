@@ -1,4 +1,6 @@
 import 'dotenv/config';
+import "core-js/stable";
+import "regenerator-runtime/runtime"
 import express from 'express';
 import { json, urlencoded } from 'express';
 import { join } from 'path';
@@ -17,7 +19,7 @@ const app = express();
 app.use(morgan('dev'));
 app.use(json());
 app.use(urlencoded({ extended: true }));
-// if(NODE_ENV === 'development')
+if(NODE_ENV === 'development')
 app.use(cors());
 //routes
 routes(app);

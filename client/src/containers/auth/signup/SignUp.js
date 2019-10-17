@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import classes from './SignUp.module.css';
-import Input from '../../ui/input/Input';
+import Submit from '../../../components/ui/button/submit/Submit';
+import Input from '../../../components/ui/input/Input';
 import Validator from '../../../validation/validate';
-import Submit from '../../ui/button/submit/Submit';
+import Errory from '../../../components/popup/error/Error';
+import { connect } from 'react-redux';
+import Aux from '../../../hocs/Auxi';
+import { Redirect } from 'react-router-dom';
+import { hideError, onAuth } from '../../../store/actions';
 
 class SignUp extends Component {
   state = {
@@ -119,9 +124,7 @@ class SignUp extends Component {
     const signUpSchema = { ...this.state.signupForm };
     const formFields = Object.keys(signUpSchema);
     return formFields.map(fieldName => {
-      const { inputConfig, valid, startChange, validation } = signUpSchema[
-        fieldName
-      ];
+      const { inputConfig, valid, startChange, validation } = signUpSchema[fieldName];
       return (
         <Input
           inputConfig={inputConfig}
@@ -130,10 +133,14 @@ class SignUp extends Component {
           startChange={startChange}
           key={fieldName}
           errorMessage={validation.errorMessage}
+          disabled={this.props.loading}
         />
       );
     });
   }
+  closeErrHandler = () => {
+    this.props.closeError();
+  };
   submitFormHandler = e => {
     e.preventDefault();
     const currFormState = this.state.signupForm;
@@ -150,23 +157,50 @@ class SignUp extends Component {
       }
     }
     if (isNotValid) return null;
+    const { email, password, firstName, lastName } = this.state.signupForm;
+    const data = {
+      firstName: firstName.inputConfig.value,
+      lastName: lastName.inputConfig.value,
+      email: email.inputConfig.value,
+      password: password.inputConfig.value
+    };
+    this.props.onSignup(data);
   };
   render() {
     return (
-      <div className={classes['signup-section']}>
-        <div className={classes['form-wrapper']}>
-          <h5 className={classes['form-header']}>Sign Up With Us</h5>
-          <form
-            className={classes['sign-up-form']}
-            onSubmit={this.submitFormHandler}
-          >
-            {this.mapSchemaToInput()}
-            <Submit name='sign me up' />
-          </form>
+      <Aux>
+        {this.props.isAuth ? <Redirect to='/dashboard' /> : null}
+        <div className={classes['signup-section']}>
+          <Errory show={this.props.showErr} close={this.closeErrHandler}>
+            {this.props.errMessage}
+          </Errory>
+          <div className={classes['form-wrapper']}>
+            <h5 className={classes['form-header']}>Sign Up With Us</h5>
+            <form className={classes['sign-up-form']} onSubmit={this.submitFormHandler}>
+              {this.mapSchemaToInput()}
+              <Submit name='sign me up' show={this.props.loading} />
+            </form>
+          </div>
         </div>
-      </div>
+      </Aux>
     );
   }
 }
-
-export default SignUp;
+const mapStateToProps = state => ({
+  loading: state.auth.loading,
+  errMessage: state.auth.error,
+  showErr: state.auth.showError,
+  isAuth: state.auth.token !== null
+});
+const mapDispatchToProps = dispatch => ({
+  onSignup: (data) => {
+    dispatch(onAuth(data));
+  },
+  closeError: () => {
+    dispatch(hideError());
+  }
+});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignUp);

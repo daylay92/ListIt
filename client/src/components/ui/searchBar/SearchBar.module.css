@@ -1,0 +1,36 @@
+.formWrapper {
+  background: rgba(254, 253, 253, 0.29);
+  width: 400px;
+  display: flex;
+  padding: 0;
+  border-radius: 3px;
+  color: #fff;
+  transition: all ease-in-out 0.6s;
+}
+.formWrapper input {
+  height: 100%;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+  padding: 10px 19px;
+  background: transparent;
+  border: none;
+  flex: 1;
+  outline: none;
+  color: #fff;
+}
+.iconWrapper {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 0.6rem;
+}
+.formWrapper input::placeholder {
+  color: #fff;
+  text-align: center;
+}
+.formWrapper:hover,
+.formWrapper:focus {
+  box-shadow: inset 0 0 5px rgba(241, 247, 244, 0.6);
+  border-color: rgba(60, 172, 120, 0.7);
+}

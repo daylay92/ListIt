@@ -14,7 +14,7 @@ class Helpers {
     return bcrypt.compareSync(plainPassword, hash);
   }
 
-  static generateToken(payLoad, expiresIn = '1d') {
+  static generateToken(payLoad, expiresIn = '2h') {
     return jwt.sign(payLoad, SECRET, { expiresIn });
   }
   static verifyToken(token) {
@@ -59,10 +59,7 @@ class Helpers {
     } = req;
     const bearerToken = Helpers.getAuthorizationToken(authorization);
     return (
-      bearerToken ||
-      req.headers['x-access-token'] ||
-      req.headers.token ||
-      req.body.token
+      bearerToken || req.headers['x-access-token'] || req.headers.token || req.body.token
     );
   }
 

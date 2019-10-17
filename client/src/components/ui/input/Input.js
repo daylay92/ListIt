@@ -11,7 +11,7 @@ const Input = props => {
   }
   return (
     <div className={defClass.join(' ')}>
-      <input {...props.inputConfig} onChange={props.changed} />
+      <input {...props.inputConfig} onChange={props.changed} disabled={props.disabled} />
       {displayErrorSpan}
     </div>
   );

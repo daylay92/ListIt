@@ -1,12 +1,7 @@
 import { User } from '../services';
 import { Helpers } from '../utils';
 
-const {
-  errorResponse,
-  successResponse,
-  createUserResponse,
-  comparePassword
-} = Helpers;
+const { errorResponse, successResponse, createUserResponse, comparePassword } = Helpers;
 
 class Auth {
   static async signup(req, res) {
@@ -23,6 +18,7 @@ class Auth {
     try {
       const { user, body } = req;
       const isAuthenticUser = comparePassword(body.password, user.password);
+      console.log(isAuthenticUser);
       if (!isAuthenticUser)
         return errorResponse(res, {
           code: 401,

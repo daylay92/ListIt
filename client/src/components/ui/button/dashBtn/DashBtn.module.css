@@ -1,0 +1,24 @@
+.dashBtn {
+  outline: none;
+  color: #fff;
+  background: #35d4a4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 0.6rem 1.1rem;
+  font-size: 0.7rem;
+  border: none;
+  text-align: center;
+  transition: ease-in-out 0.6s all;
+  border-radius: 4px;
+  width: 86px;
+  cursor: pointer;
+}
+.dashBtn + .dashBtn {
+  margin-left: 1.3rem;
+}
+.dashBtn:hover,
+.dashBtn:disabled {
+  background: #329c7d;
+}
+.dashBtn:disabled {
+  cursor: not-allowed;
+}

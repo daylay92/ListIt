@@ -26,6 +26,22 @@ class Validator {
     const regex = /^\S+@\S+[^.]\.[^.]\S+$/i;
     return regex.test(value);
   }
+  static isDate({ value }) {
+    let isValid = true;
+    if (!value) return false;
+    if (new Date(value) === 'Invalid Date') isValid = false;
+    return isValid;
+  }
+  static dateFromNow({ value }) {
+    let isValid = false;
+    const timeDiff = new Date(value).getTime() - new Date().getTime();
+    if (timeDiff < 1) isValid = 600000 > Math.abs(timeDiff);
+    else isValid = true;
+    return isValid;
+  }
+  static compareFromTo({ value, match }) {
+    return new Date(value).getTime() > new Date(match).getTime();
+  }
   static validateField(formSchema, key, value) {
     const schema = { ...formSchema };
     const {

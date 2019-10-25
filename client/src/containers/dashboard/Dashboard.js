@@ -33,7 +33,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 const mapStateToProps = state => ({
-  firstName: state.auth.firstName,
+  firstName: state.auth.user.firstName,
   closeForm: state.bucket.closeForm
 });
 export default connect(

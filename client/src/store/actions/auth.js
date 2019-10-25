@@ -66,7 +66,6 @@ export const syncAuthState = () => dispatch => {
     return;
   }
   const expiresBy = new Date(expiryDate);
-  console.log(expiresBy);
   if (expiresBy <= new Date()) {
     dispatch(authLogout());
     return;

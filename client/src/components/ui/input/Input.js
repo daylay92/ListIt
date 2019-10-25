@@ -9,6 +9,7 @@ const Input = props => {
     if (!props.valid) defClass.push(classes['invalid']);
     else defClass.push(classes['valid']);
   }
+  if (props.extraClass) defClass.push(props.extraClass);
   return (
     <div className={defClass.join(' ')}>
       <input {...props.inputConfig} onChange={props.changed} disabled={props.disabled} />

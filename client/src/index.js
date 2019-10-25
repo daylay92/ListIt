@@ -4,7 +4,7 @@ import axios from 'axios';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import authReducer from './store/reducers/auth';
+import { authReducer, bucketReducer } from './store/reducers';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -13,7 +13,8 @@ import * as serviceWorker from './serviceWorker';
 axios.defaults.baseURL =
   process.env.NODE_ENV === 'development' ? 'http://localhost:3400/api/v1' : '/api/v1';
 const rootReducer = combineReducers({
-  auth: authReducer
+  auth: authReducer,
+  bucket: bucketReducer
 });
 
 const composeEnhancers =

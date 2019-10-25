@@ -1,0 +1,17 @@
+.introText {
+  margin: 40px auto;
+  text-align: center;
+  letter-spacing: 0.12rem;
+  padding: 0.4rem 0.8rem;
+}
+
+.introText_hero {
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin-bottom: 1px;
+}
+.introText_caption {
+  font-weight: 200;
+  font-size: 0.85rem;
+  margin: 4px 0;
+}

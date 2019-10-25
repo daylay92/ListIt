@@ -1,0 +1,98 @@
+.formItem {
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
+  margin-top: 1.2rem;
+  border-radius: 4px;
+  position: relative;
+}
+
+.itemTextWrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.closeItem {
+  display: flex;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 5px;
+  transition: all ease-in-out 0.6s;
+  font-size: 0.6rem;
+  color: #d43535b3;
+  border-radius: 50%;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
+}
+.closeItem:hover {
+  background: #d43535b3;
+  color: #fff;
+}
+.itemText {
+  min-width: 100%;
+  resize: none;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  border: 1px solid #e0e0e0;
+  padding: 0.5rem;
+  outline: none;
+  transition: all 0.6s ease-in-out;
+}
+.itemText::placeholder {
+  font-size: 0.8rem;
+  display: block;
+}
+
+.itemText:hover,
+.itemText:focus {
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+  border-color: rgba(60, 172, 120, 0.7);
+}
+.inValid {
+  border-color: #ff2222d8 !important;
+}
+.errSpan {
+  display: block;
+  margin-top: 3px;
+  margin-left: 2px;
+  font-size: 0.6rem;
+  color: #ff2222d8;
+}
+.calendarContainer {
+  display: flex;
+  margin-top: 0.6rem;
+}
+.trackText {
+  font-size: 0.8rem;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.16);
+  letter-spacing: 0.12rem;
+  display: block;
+  margin-top: 0.6rem;
+}
+
+.toggle {
+  position: relative;
+  cursor: pointer;
+  margin-top: 0.3rem;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.16);
+  display: inline-block;
+}
+.toggleOff {
+  position: absolute;
+  color: rgb(41, 138, 151);
+}
+.toggleOn {
+  color: #24a368;
+}
+.toggleOff,
+.toggleOn {
+  transition: all 0.6s ease-in-out;
+}
+.toggle--opacity-zero {
+  opacity: 0;
+}

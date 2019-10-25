@@ -29,7 +29,7 @@ routes(app);
 if (NODE_ENV === 'production') {
   const clientDir = join(__dirname, '../client/build');
   app.use(express.static(clientDir));
-  app.get('*', (req, res) => res.sendFile(clientDir + 'index.html'));
+  app.get('*', (req, res) => res.sendFile(clientDir + '/index.html'));
 }
 // Handle Errors on dev & test env only
 else app.use(errorHandler());

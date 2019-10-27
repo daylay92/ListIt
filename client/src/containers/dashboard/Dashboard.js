@@ -184,6 +184,7 @@ class Dashboard extends Component {
     );
   }
 }
+const fetchFirstName = state => (state.auth.user ? state.auth.user.firstName : '');
 const mapDispatchToProps = dispatch => ({
   onCloseForm: () => {
     dispatch(closeForm());
@@ -193,7 +194,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 const mapStateToProps = state => ({
-  firstName: state.auth.user.firstName,
+  firstName: fetchFirstName(state),
   closeForm: state.bucket.closeForm,
   loading: state.bucket.loading,
   lists: state.bucket.bucketLists

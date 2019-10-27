@@ -33,9 +33,11 @@ const FormItem = props => {
 
   return (
     <div className={classes.formItem}>
-      <span className={classes.closeItem} onClick={props.closeItem}>
-        <FontAwesomeIcon icon='times' />
-      </span>
+      {props.isModal ? null : (
+        <span className={classes.closeItem} onClick={props.closeItem}>
+          <FontAwesomeIcon icon='times' />
+        </span>
+      )}
       <div className={classes.itemTextWrapper}>
         <textarea
           rows='2'

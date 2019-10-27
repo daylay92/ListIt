@@ -1,16 +1,17 @@
 .dashboardWrapper {
   width: 100%;
   min-height: 100%;
-  background: #f8f9f9;
 }
-
+.wrapper {
+  padding: 3rem 0;
+}
 .mainContainer {
   width: 800px;
-  margin: 3rem auto 4rem auto;
+  margin: 0 auto;
   min-height: 420px;
   background: #ffffff;
   box-shadow: 0px 4px 4px rgba(129, 129, 129, 0.15);
-  border-radius: 4px;
+  border-radius: 6px;
   padding: 1rem 1.5rem;
   padding-bottom: 2rem;
   transition: all ease-in-out 0.6s;
@@ -18,7 +19,7 @@
 
 .bucketHeader {
   background: rgba(40, 168, 99, 0.06);
-  margin: 0.4rem auto 0.3rem auto;
+  margin: 1.2rem auto 0.8rem auto;
   padding: 0.4rem 0.3rem;
   letter-spacing: 0.12rem;
   width: 400px;

@@ -1,0 +1,182 @@
+.list {
+  width: 90%;
+  padding: 0.6rem 1rem;
+  border: 1px solid #f3f3f3;
+  margin: 1rem auto;
+  border-radius: 4px;
+}
+.list + .list {
+  margin: 0.7rem auto 0 auto;
+}
+.list:last-child {
+  margin-bottom: 1.2rem;
+}
+.list__header {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: center;
+}
+.dateWrapper {
+  display: flex;
+  align-items: center;
+}
+.dateWrapper * {
+  display: inline-block;
+  font-size: 0.5rem;
+  text-transform: capitalize;
+  line-height: 1.2;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.dateLabel {
+  margin-right: 0.6rem;
+  font-weight: bold;
+}
+.date {
+  font-size: 0.6rem;
+  font-weight: 300;
+}
+.settingWrapper {
+  display: flex;
+  align-items: center;
+}
+.settingWrapper svg {
+  cursor: pointer;
+  color: #7f90a0;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.16);
+}
+
+.list__main {
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: 0.12rem;
+  padding: 0.5rem 0;
+}
+.list__footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.list__summary {
+  display: flex;
+  align-items: center;
+}
+.list__summary + .list__summary {
+  margin-left: 0.5rem;
+}
+.list__summary * {
+  display: inline-block;
+  font-size: 0.5rem;
+}
+.summary__label {
+  margin-right: 0.3rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.list__dropBtn {
+  font-size: 0.8rem;
+  text-align: center;
+  cursor: pointer;
+  padding: 0 0.2rem;
+  color: #7f90a0;
+}
+.list__dropBtn svg {
+  transition: all ease-in-out 0.6s;
+}
+.renameInput {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+}
+
+.renamingInputWrapper {
+  flex-basis: 75%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.renamingInputWrapper span {
+  font-size: 0.5rem;
+  color: #ff2222d8;
+  letter-spacing: initial;
+}
+.renamingInputWrapper input {
+  border: none;
+  border-bottom: 1px solid;
+  outline: none;
+}
+.invalid input {
+  border-bottom: 1px solid #ff2222d8 !important;
+}
+.renamingInputWrapper input:focus {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #7f90a0;
+}
+.renameInput button {
+  background: transparent;
+  font-size: 0.5rem;
+  border-radius: 3px;
+  border: 1px solid #7f90a0;
+  padding: 0.5rem 0.6rem;
+  cursor: pointer;
+  text-align: center;
+  transition: ease-in-out all 0.6s;
+  min-width: 45px;
+}
+.btnCancel {
+  margin-left: 0.4rem;
+  background: #35d4a4 !important;
+  color: #fff;
+}
+.btnSave {
+  margin-left: 1.5rem;
+}
+.btnSave:hover,
+.btnSave:active,
+.btnSave:focus {
+  border-color: #35d4a4;
+  color: #35d4a4;
+  outline: none;
+}
+.btnSave:disabled {
+  cursor: not-allowed;
+  border: 1px solid #7f90a0;
+  color: #7f90a0;
+}
+.btnCancel:hover,
+.btnCancel:active,
+.btnCancel:focus {
+  border-color: #35d4a4;
+  background: #2da883;
+  outline: none;
+}
+.setting_icon {
+  transition: ease-in-out all 0.6s;
+}
+
+.setting_icon:hover,
+.setting_icon:active {
+  color: #35d4a4 !important;
+}
+
+.list__summary:nth-child(3) {
+  margin-right: auto;
+}
+.animate--rotate {
+  transform: rotate(-180deg);
+}
+.turnUp {
+  transform: rotate(-90deg);
+}
+@keyframes merry {
+  from {
+    transform: rotate(-360deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}

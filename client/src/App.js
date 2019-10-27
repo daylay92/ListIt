@@ -11,7 +11,12 @@ import {
   faToggleOff,
   faToggleOn,
   faCalendar,
-  faCalendarAlt
+  faCalendarAlt,
+  faCog,
+  faChevronDown,
+  faTrashAlt,
+  faCogs,
+  faTimesCircle
 } from '@fortawesome/free-solid-svg-icons';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Layout from './hocs/layout/Layout';
@@ -34,7 +39,12 @@ library.add(
   faToggleOff,
   faToggleOn,
   faCalendar,
-  faCalendarAlt
+  faCalendarAlt,
+  faCog,
+  faChevronDown,
+  faTrashAlt,
+  faCogs,
+  faTimesCircle
 );
 
 class App extends Component {

@@ -1,0 +1,41 @@
+.goalModal {
+  width: 100%;
+  right: 0;
+  left: 0;
+  height: 100%;
+  position: fixed;
+  background: rgba(109, 109, 109, 0.6);
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+  align-items: flex-start;
+  z-index: 400;
+}
+.mainContent {
+  padding: 1rem;
+  width: 60%;
+  background: #fff;
+}
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  transition: all 0.6s ease-in-out;
+  color: #413d3d;
+  cursor: pointer;
+}
+.contentHeader {
+  text-align: center;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.16);
+  font-size: 1.2rem;
+  padding: 0.4rem 0;
+  letter-spacing: 0.12rem;
+}
+.btnWrapper {
+  margin: 1rem 0;
+  text-align: center;
+}
+.closeButton:hover {
+  transform: rotate(180deg);
+  color: #ce3434d8;
+}

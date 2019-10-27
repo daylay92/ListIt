@@ -1,0 +1,83 @@
+.goalWrapper {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #cfd4da;
+  border-radius: 4px;
+  padding: 0.5rem 0.3rem;
+  animation: dropDown ease-in-out 0.7s;
+}
+
+.goalWrapper:nth-child(1) {
+  margin-top: 2rem;
+}
+.goalWrapper:last-child {
+  margin-bottom: 2rem;
+}
+.goalWrapper + .goalWrapper {
+  margin-top: 1rem;
+}
+.goalHeader {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  align-items: flex-start;
+}
+.dateWrapper *,
+.statusWrapper *,
+.dateRemaining * {
+  display: inline-block;
+  font-size: 0.5rem;
+  line-height: 1.2;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.statusWrapper,
+.dateWrapper,
+.dateRemaining {
+  display: flex;
+  align-items: center;
+}
+
+.dateLabel,
+.statusLabel,
+.countLabel {
+  margin-right: 0.6rem;
+  font-weight: bold;
+}
+.date,
+.status,
+.count {
+  font-size: 0.6rem;
+  font-weight: 300;
+}
+.settingWrapper {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+}
+.settingWrapper svg {
+  cursor: pointer;
+  color: #7f90a0;
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.16);
+}
+
+.goalMain {
+  line-height: 1.2;
+  letter-spacing: 0.12rem;
+  padding: 0.4rem 0;
+}
+.goalFooter {
+  display: flex;
+  align-items: center;
+}
+
+@keyframes dropDown {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

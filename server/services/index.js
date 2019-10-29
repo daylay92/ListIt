@@ -1,2 +1,3 @@
 import User from './user';
-export { User };
+import BucketList from './bucketList';
+export { User, BucketList };

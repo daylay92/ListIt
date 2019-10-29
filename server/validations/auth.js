@@ -1,6 +1,6 @@
 import Joi from '@hapi/joi';
 
-const AuthSchema = Joi.object({
+const authSchema = Joi.object({
   firstName: Joi.string()
     .min(2)
     .max(15)
@@ -19,10 +19,10 @@ const AuthSchema = Joi.object({
     .min(6)
     .required()
     .label('A password of atleast 6 characters is required')
-});
+}).options({ abortEarly: false });
 
 const validateAuthSchema = body => {
-  const { error } = AuthSchema.validate(body);
+  const { error } = authSchema.validate(body);
   if (error) {
     const [
       {

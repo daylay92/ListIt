@@ -73,6 +73,17 @@ class Helpers {
     const token = Helpers.generateToken({ email, id });
     return { ...newUser, token };
   }
+
+  static createFilter(req) {
+    const {
+      query: { name, page, limit },
+      data: { id }
+    } = req;
+    const filter = name ? { $text: { $search: name }, userId: id } : { userId: id };
+    const actualLimit = +limit || 30;
+    const skip = +page ? (+page - 1) * actualLimit : 0;
+    return { filter, limit: actualLimit, skip };
+  }
 }
 
 export default Helpers;

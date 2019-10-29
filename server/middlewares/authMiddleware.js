@@ -3,9 +3,25 @@ import { Helpers } from '../utils';
 import { User } from '../services';
 
 const { fetchByEmail } = User;
-const { errorResponse } = Helpers;
+const { errorResponse, checkToken, verifyToken } = Helpers;
 
 class AuthMiddleware {
+  static authenticate(req, res, next) {
+    const token = checkToken(req);
+    if (!token) {
+      return errorResponse(res, {
+        code: 401,
+        message: 'Access denied, Token required'
+      });
+    }
+    try {
+      const decoded = verifyToken(token);
+      req.data = decoded;
+      next();
+    } catch (err) {
+      errorResponse(res, { code: 401, message: err.message });
+    }
+  }
   static validate(req, res, next) {
     const message = validateAuthSchema(req.body);
     if (message === true) return next();

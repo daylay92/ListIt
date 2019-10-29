@@ -3,7 +3,7 @@ import { Helpers } from '../utils';
 
 const { errorResponse, successResponse, createUserResponse, comparePassword } = Helpers;
 
-class Auth {
+class AuthController {
   static async signup(req, res) {
     try {
       const user = new User(req.body);
@@ -18,7 +18,6 @@ class Auth {
     try {
       const { user, body } = req;
       const isAuthenticUser = comparePassword(body.password, user.password);
-      console.log(isAuthenticUser);
       if (!isAuthenticUser)
         return errorResponse(res, {
           code: 401,
@@ -33,4 +32,4 @@ class Auth {
   }
 }
 
-export default Auth;
+export default AuthController;

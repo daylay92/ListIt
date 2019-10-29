@@ -48,13 +48,12 @@ app.use((err, req, res, next) => {
   });
 });
 //set port
-const port = PORT || 3000;
+const port = PORT || 3400;
 
 //listen for requests
 (async () => {
   try {
     const db = await DB.connect();
-    const port = PORT || 3000;
     app.listen(port, () => {
       console.log(`Amazing Stuff is Happening on: ${port}`);
     });

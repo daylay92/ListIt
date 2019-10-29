@@ -1,3 +1,4 @@
-import Auth from './auth';
+import AuthController from './auth';
+import BucketListController from './bucketList'
 
-export { Auth };
+export { AuthController,BucketListController };

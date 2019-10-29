@@ -3,8 +3,8 @@ import { Helpers } from '../utils';
 
 const Schema = mongoose.Schema;
 const { hashPassword } = Helpers;
-const options = { timestamp: true };
-const UserSchema = new Schema(
+const options = { timestamps: true };
+const userSchema = new Schema(
   {
     firstName: {
       type: String,
@@ -31,6 +31,6 @@ const UserSchema = new Schema(
   options
 );
 
-const User = mongoose.model('User', UserSchema);
+const User = mongoose.model('User', userSchema);
 
 export default User;

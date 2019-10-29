@@ -1,9 +1,7 @@
 import { User } from '../models';
 
 class UserService extends User {
-  constructor(options) {
-    super(options);
-  }
+
   static async fetch(options = {}) {
     return UserService.find(options).select('-__v -password');
   }

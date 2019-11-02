@@ -32,7 +32,7 @@ const Goal = props => (
     <div className={classes.goalFooter}>
       <div className={classes.dateRemaining}>
         <span className={classes.countLabel}>Remaining:</span>
-        <span className={classes.count}>forever</span>
+        <span className={classes.count}>{props.calDays}</span>
       </div>
     </div>
   </div>

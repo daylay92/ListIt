@@ -28,10 +28,8 @@ export const onFetchList = token => async dispatch => {
     const {
       data: { data }
     } = await axios.get('/bucketList', config);
-    console.log(data);
     dispatch(fetchSuccess(data));
   } catch (err) {
-    console.log(err.response);
     const msg = err.response
       ? err.response.data.error.message
       : 'something went wrong, please try again.';

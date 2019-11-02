@@ -10,6 +10,7 @@ const Goals = props =>
       mainText={goal.text}
       status={goal.status}
       createdOn={goal.createdAt}
+      calDays={props.calDays(goal.tracking, goal.from, goal.to)}
     />
   ));
 

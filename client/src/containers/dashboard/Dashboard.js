@@ -131,8 +131,19 @@ class Dashboard extends Component {
 
   pendingGoals = goals =>
     goals.filter(({ status }) => status.toLowerCase() === 'pending').length;
+  calDays = (tracking, from, to) => {
+    if (!tracking) return 'forever';
+    const hasBegan = new Date(from).getTime() > new Date().getTime();
+    if (hasBegan) return 'forever';
+    const diff = new Date(to).getTime() - new Date().getTime();
+    if (0 > diff) return '0 days';
+    const secondsTodays = 60 * 60 * 24;
+    const days = diff / 1000 / secondsTodays;
+    const roundedDay = Math.round(days);
+    return roundedDay > 1 ? `${roundedDay} days` : `${roundedDay} day`;
+  };
   closeSettingHandler = ({ target }) => {
-    const locaton = this.props.location.pathname;
+    const location = this.props.location.pathname;
     if (location !== '/dashboard') return;
     const settingWrapper = document.querySelectorAll('div[listsetting]');
     if (!settingWrapper) return;
@@ -211,6 +222,7 @@ class Dashboard extends Component {
                   renameValue={this.fetchRenameValue}
                   showGoals={this.showGoals}
                   openModal={this.onClickCreateGoalHandler}
+                  calDays={this.calDays}
                 />
               </div>
             ) : (

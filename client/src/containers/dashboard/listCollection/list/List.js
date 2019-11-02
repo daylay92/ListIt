@@ -67,7 +67,7 @@ const List = props => {
       </div>
       {props.showGoals ? (
         <div className={classes.goals}>
-          <Goals goals={props.goals} parentTag={props.tag} />
+          <Goals goals={props.goals} parentTag={props.tag} calDays={props.calDays} />
         </div>
       ) : null}
       <div className={classes.list__footer}>

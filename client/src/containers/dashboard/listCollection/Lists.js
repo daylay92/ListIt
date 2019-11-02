@@ -23,6 +23,7 @@ const Lists = props =>
       showGoals={props.showGoals(list._id)}
       toggleGoals={()=>props.clickedSetting(list._id, 'toggleGoals')}
       openCreateGoals={props.openModal}
+      calDays={props.calDays}
     />
   ));
 

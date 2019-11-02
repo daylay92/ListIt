@@ -8,7 +8,14 @@ const Goal = props => (
       <div className={classes.statusSummary}>
         <div className={classes.dateWrapper}>
           <span className={classes.dateLabel}>Created on:</span>
-          <span className={classes.date}>{props.createdOn}</span>
+          <span className={classes.date}>{`${new Date(
+            props.createdOn
+          ).getFullYear()}-${new Date(props.createdOn).getMonth() + 1}-${
+            new Date(props.createdOn).getDate() < 10
+              ? '0' + new Date(props.createdOn).getDate().toString()
+              : new Date(props.createdOn).getDate()
+          }
+          `}</span>
         </div>
         <div className={classes.statusWrapper}>
           <span className={classes.statusLabel}>Status:</span>
@@ -25,7 +32,7 @@ const Goal = props => (
     <div className={classes.goalFooter}>
       <div className={classes.dateRemaining}>
         <span className={classes.countLabel}>Remaining:</span>
-        <span className={classes.count}>forever</span>
+        <span className={classes.count}>{props.calDays}</span>
       </div>
     </div>
   </div>

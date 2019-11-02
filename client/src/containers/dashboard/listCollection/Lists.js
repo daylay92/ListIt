@@ -7,7 +7,7 @@ const Lists = props =>
       tag={list._id}
       name={list.name}
       key={list._id}
-      createdOn={list.created_on}
+      createdOn={list.createdAt}
       totalGoals={props.calGoals(list.goals)}
       goals={list.goals}
       done={props.calDone(list.goals)}
@@ -23,6 +23,7 @@ const Lists = props =>
       showGoals={props.showGoals(list._id)}
       toggleGoals={()=>props.clickedSetting(list._id, 'toggleGoals')}
       openCreateGoals={props.openModal}
+      calDays={props.calDays}
     />
   ));
 

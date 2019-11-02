@@ -9,7 +9,7 @@ const Goals = props =>
       parentTag={props.parentTag}
       mainText={goal.text}
       status={goal.status}
-      createdOn={goal.created_on}
+      createdOn={goal.createdAt}
     />
   ));
 

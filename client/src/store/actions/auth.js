@@ -41,7 +41,6 @@ export const onAuth = (data, task = 'signup') => async dispatch => {
     const user = { id, firstName, lastName, email };
     const expiresIn = 7200000;
     const expiresBy = new Date(new Date().getTime() + expiresIn);
-    console.log(expiresBy);
     localStorage.setItem('token', token);
     localStorage.setItem('user', JSON.stringify(user));
     localStorage.setItem('expiryDate', expiresBy);

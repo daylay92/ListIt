@@ -22,7 +22,8 @@ class Layout extends Component {
     }));
   };
   updateSizing() {
-    if (window.innerWidth > 600) this.setState({ showNavResponsive: false, open: false });
+    if (window.innerWidth > 600)
+      this.setState({ showNavResponsive: false, open: false });
   }
   windowClickHandler = ({ target }) => {
     const profileNav = document.querySelector('.profileDiv');
@@ -31,11 +32,17 @@ class Layout extends Component {
     const isOthers = target !== profileNav && !Array.from(navEls).includes(target);
     if (isOthers) this.setState({ open: false });
   };
+
   componentDidMount() {
     window.addEventListener('resize', this.updateSizing.bind(this));
     window.addEventListener('click', this.windowClickHandler);
   }
 
+  componentDidUpdate() {
+    if (this.state.open && this.props.loadingDash) {
+      this.setState({ open: false });
+    }
+  }
   render() {
     const { location } = this.props.history;
     return (
@@ -63,6 +70,7 @@ const checkUserEmail = state => (state.auth.user ? state.auth.user.email : '');
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.token !== null,
   fullname: checkUser(state),
-  email: checkUserEmail(state)
+  email: checkUserEmail(state),
+  loadingDash: state.bucket.fetching
 });
 export default withRouter(connect(mapStateToProps)(Layout));

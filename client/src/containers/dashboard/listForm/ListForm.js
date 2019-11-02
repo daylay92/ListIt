@@ -5,7 +5,7 @@ import classes from './ListForm.module.css';
 import Input from '../../../components/ui/input/Input';
 import DashBtn from '../../../components/ui/button/dashBtn/DashBtn';
 import FormItem from '../formItem/FormItem';
-import { closeForm } from '../../../store/actions';
+import { closeForm, onCreateList } from '../../../store/actions';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class ListForm extends Component {
   state = {
@@ -67,7 +67,7 @@ class ListForm extends Component {
     e.preventDefault();
     this.createListItemCollection();
   };
-  onCloseFormHandler = () => {
+  onCloseForm = () => {
     const formState = { ...this.state.listForm };
     const listForm = {
       name: {
@@ -87,6 +87,9 @@ class ListForm extends Component {
       }
     };
     this.setState({ listForm, formCompleted: false });
+  };
+  onCloseFormHandler = () => {
+    this.onCloseForm();
     this.props.onCloseForm();
   };
   onNameChangeHandler = ({ target }) => {
@@ -346,14 +349,41 @@ class ListForm extends Component {
     };
     this.setState({ listForm, formCompleted: false });
   }
-
+  onSubmitHandler = e => {
+    e.preventDefault();
+    const { listForm, formCompleted } = this.state;
+    if (!formCompleted) return;
+    const goals = listForm.goals.collection.map(({ calendar, textConfig }) =>
+      calendar.show
+        ? {
+            text: textConfig.value,
+            tracking: true,
+            from: calendar.from,
+            to: calendar.to
+          }
+        : {
+            text: textConfig.value,
+            tracking: false
+          }
+    );
+    const data = { name: listForm.name.config.value, goals };
+    this.props.onCreateList(this.props.token, data);
+  };
+  componentDidUpdate() {
+    if (
+      this.state.listForm.name.config.value &&
+      !this.props.closeForm &&
+      this.props.showSuccess
+    )
+      this.onCloseForm();
+  }
   render() {
     return this.props.open ? (
       <div className={classes.formContainer}>
         <span className={classes.closeForm} onClick={this.onCloseFormHandler}>
           <FontAwesomeIcon icon='times' />
         </span>
-        <form>
+        <form onSubmit={this.onSubmitHandler}>
           <Input
             extraClass={
               this.state.listForm.name.startChange &&
@@ -372,6 +402,7 @@ class ListForm extends Component {
             <DashBtn
               config={{ type: 'submit', disabled: !this.state.formCompleted }}
               name='Save List'
+              show={this.props.creating}
             />
             <DashBtn
               name='Add Item'
@@ -388,9 +419,18 @@ class ListForm extends Component {
 const mapDispatchToProps = dispatch => ({
   onCloseForm: () => {
     dispatch(closeForm());
+  },
+  onCreateList: (token, data) => {
+    dispatch(onCreateList(token, data));
   }
 });
+const mapStateToProps = state => ({
+  creating: state.bucket.creating,
+  token: state.auth.token,
+  closeForm: state.bucket.toggleForm,
+  showSuccess: state.bucket.showSuccess
+});
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(ListForm);

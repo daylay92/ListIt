@@ -42,6 +42,10 @@ const bucketListSchema = new Schema(
           required: function() {
             return this.tracking === true;
           }
+        },
+        createdAt: {
+          type: Date,
+          default: Date.now
         }
       }
     ]

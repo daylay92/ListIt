@@ -1,9 +1,18 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
+import Loader from 'react-loader-spinner';
 import classes from './Goal.module.css';
+import Settings from './settings/Settings';
 
 const Goal = props => (
-  <div className={classes.goalWrapper}>
+  <div
+    className={
+      props.status === 'completed'
+        ? [classes.goalWrapper, classes.completed].join(' ')
+        : classes.goalWrapper
+    }
+  >
     <div className={classes.goalHeader}>
       <div className={classes.statusSummary}>
         <div className={classes.dateWrapper}>
@@ -23,7 +32,24 @@ const Goal = props => (
         </div>
       </div>
       <div className={classes.settingWrapper} tag={props.tag} parenttag={props.parentTag}>
-        <FontAwesomeIcon icon='cog' />
+        {props.processing ? (
+          <span className={classes.loader}>
+            <Loader type='ThreeDots' color='#35d4a4' height={6} width={25} />
+          </span>
+        ) : (
+          <FontAwesomeIcon
+            icon='cog'
+            className={
+              props.showSetting
+                ? [classes['animate--rotate'], classes.setting_icon].join(' ')
+                : classes.setting_icon
+            }
+            onClick={props.goalSettingToggle}
+          />
+        )}
+        {props.showSetting ? (
+          <Settings status={props.status} clickedMark={props.clickedMark} clickedDelete={props.clickedDelete} />
+        ) : null}
       </div>
     </div>
     <div className={classes.goalMain}>

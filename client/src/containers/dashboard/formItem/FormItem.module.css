@@ -66,6 +66,7 @@
 .calendarContainer {
   display: flex;
   margin-top: 0.6rem;
+  flex-wrap: wrap;
 }
 .trackText {
   font-size: 0.8rem;
@@ -95,4 +96,17 @@
 }
 .toggle--opacity-zero {
   opacity: 0;
+}
+@media screen and (max-width: 420px) {
+  .trackText {
+    font-size: 0.6rem;
+  }
+  .itemText::placeholder {
+    font-size: 0.5rem;
+  }
+}
+@media screen and (max-width: 360px) {
+  .trackText {
+    font-size: 0.5rem;
+  }
 }

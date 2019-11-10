@@ -15,3 +15,30 @@
   font-size: 0.85rem;
   margin: 4px 0;
 }
+
+@media screen and (max-width: 600px) {
+  .introText_hero {
+    font-size: 1.3rem;
+  }
+  .introText_caption {
+    font-size: 0.75rem;
+  }
+}
+@media screen and (max-width: 530px) {
+  .introText_hero {
+    font-size: 1.2rem;
+  }
+  .introText_caption {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 456px) {
+  .introText_hero {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  .introText_caption {
+    font-size: 0.6rem;
+  }
+}

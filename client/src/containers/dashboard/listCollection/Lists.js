@@ -21,9 +21,16 @@ const Lists = props =>
       onRename={e => props.onRename(e, list._id)}
       renameValue={props.renameValue(list._id, list.name)}
       showGoals={props.showGoals(list._id)}
-      toggleGoals={()=>props.clickedSetting(list._id, 'toggleGoals')}
+      toggleGoals={() => props.clickedSetting(list._id, 'toggleGoals')}
       openCreateGoals={props.openModal}
       calDays={props.calDays}
+      goalSettingToggle={props.goalSettingToggle}
+      goalSetting={props.goalSetting}
+      clickedMark={props.clickedMark}
+      clickedDelete={props.clickedDelGoal}
+      processing={props.onProcessList(list._id)}
+      onProcessGoal={props.onProcessGoal}
+      clickDeleteList={() => props.onDeleteList(list._id)}
     />
   ));
 

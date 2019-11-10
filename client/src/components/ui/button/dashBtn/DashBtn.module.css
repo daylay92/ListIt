@@ -12,6 +12,7 @@
   border-radius: 4px;
   min-width: 86px;
   cursor: pointer;
+  justify-content: center;
 }
 button.dashBtn span {
   display: block;
@@ -26,10 +27,18 @@ button.dashBtn svg {
 .dashBtn:disabled {
   background: #329c7d;
 }
-.dashBtn:focus{
+.dashBtn:focus {
   outline: none;
   border-color: #35d4a4;
 }
 .dashBtn:disabled {
   cursor: not-allowed;
+}
+
+@media screen and (max-width: 415px) {
+  .dashBtn {
+    font-size: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    min-width: 40px;
+  }
 }

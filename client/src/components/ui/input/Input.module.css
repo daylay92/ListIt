@@ -32,8 +32,32 @@
   font-size: 0.6rem;
   color: #ff2222d8;
 }
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 530px) {
+  .input-wrapper input::placeholder {
+    font-size: 0.6rem;
+  }
+  .input-wrapper input {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 435px) {
   .input-wrapper input {
     font-size: 10px;
+  }
+  .input-wrapper input::placeholder {
+    font-size: 0.5rem;
+  }
+}
+@media screen and (max-width: 360px) {
+  .input-wrapper input {
+    font-size: 8px;
+  }
+  .input-wrapper input::placeholder {
+    font-size: 0.5rem;
+  }
+}
+@media screen and (max-width: 325px) {
+  .input-wrapper input::placeholder {
+    font-size: 0.4rem;
   }
 }

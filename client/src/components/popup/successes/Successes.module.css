@@ -1,0 +1,6 @@
+.sucDiv {
+  position: fixed;
+  bottom: 150px;
+  right: 10px;
+  z-index: 9999;
+}

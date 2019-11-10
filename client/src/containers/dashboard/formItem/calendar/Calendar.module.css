@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
 }
-.calendarWrapper + .calendarWrapper {
-  margin-left: 1rem;
+.calendarWrapper:nth-child(1) {
+  margin-right: 1rem;
 }
 .label {
   font-size: 0.42rem;
@@ -46,4 +46,22 @@
 .inValid {
   border-color: #ff2222d8 !important;
   outline: none !important;
+}
+@media screen and (max-width: 620px) {
+  .calendarWrapper + .calendarWrapper {
+    margin: 0.8rem 0 0 0;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .calendarWrapper:nth-child(1) {
+    margin-right: 0;
+  }
+  .dateInput {
+    width: 95%;
+  }
+  .calendarInput svg {
+    right: 11px;
+    top: 6px;
+  }
 }

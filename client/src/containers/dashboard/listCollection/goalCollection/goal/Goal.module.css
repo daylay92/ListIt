@@ -3,11 +3,17 @@
   margin-left: auto;
   margin-right: auto;
   border: 1px solid #cfd4da;
+  border-color: #cfd4da;
   border-radius: 4px;
   padding: 0.5rem 0.3rem;
   animation: dropDown ease-in-out 0.7s;
 }
-
+.completed {
+  border-color: #35d4a4;
+}
+.loader {
+  color: #7f90a0;
+}
 .goalWrapper:nth-child(1) {
   margin-top: 2rem;
 }
@@ -73,11 +79,49 @@
   align-items: center;
 }
 
+.setting_icon {
+  transition: ease-in-out all 0.6s;
+}
+
+.setting_icon:hover,
+.setting_icon:active {
+  color: #35d4a4 !important;
+}
+
+.animate--rotate {
+  transform: rotate(-180deg);
+}
+
 @keyframes dropDown {
   from {
     transform: translateY(-20px);
   }
   to {
     transform: translateY(0);
+  }
+}
+@media screen and (max-width: 600px) {
+  .goalMain {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 409px) {
+  .goalMain {
+    font-size: 0.6rem;
+  }
+  .date,
+  .status,
+  .count {
+    font-size: 0.5rem;
+    font-weight: 400;
+  }
+  .dateWrapper *,
+  .statusWrapper *,
+  .dateRemaining * {
+    font-size: 0.3rem;
+  }
+  .settingWrapper {
+    font-size: 0.6rem;
   }
 }

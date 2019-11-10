@@ -89,6 +89,7 @@
   width: 100%;
   display: flex;
   align-items: baseline;
+  flex-wrap: wrap;
 }
 
 .renamingInputWrapper {
@@ -97,6 +98,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
+  margin-right: 1.5rem;
 }
 .renamingInputWrapper span {
   font-size: 0.5rem;
@@ -132,9 +134,7 @@
   background: #35d4a4 !important;
   color: #fff;
 }
-.btnSave {
-  margin-left: 1.5rem;
-}
+
 .btnSave:hover,
 .btnSave:active,
 .btnSave:focus {
@@ -178,5 +178,45 @@
   }
   to {
     transform: rotate(0);
+  }
+}
+@media screen and (max-width: 812px) {
+  .renamingInputWrapper {
+    flex-basis: 90%;
+  }
+  .btnz {
+    margin-top: 0.5rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .list__main {
+    font-size: 1.2rem;
+  }
+  .renameInput button {
+    font-size: 0.4rem;
+    padding: 0.4rem;
+  }
+  .renamingInputWrapper input {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 409px) {
+  .list__main {
+    font-size: 0.8rem;
+  }
+  .renameInput button {
+    font-size: 0.35rem;
+    padding: 0.3rem;
+  }
+  .renamingInputWrapper input {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .renamingInputWrapper input {
+    max-width: 95%;
+    font-size: 0.8rem;
   }
 }

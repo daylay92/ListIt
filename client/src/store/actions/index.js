@@ -6,5 +6,12 @@ export {
   onCreateList,
   showFetchError,
   showCreateError,
-  toggleSuccessMessage
+  toggleSuccessMessage,
+  clearGoalError,
+  clearGoalSuccessMsg,
+  onMarkGoal,
+  onDeleteGoal,
+  onDeleteBucket,
+  clearBucketError,
+  clearBucketSuccess
 } from './bucketList';

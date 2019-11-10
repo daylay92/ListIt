@@ -7,7 +7,8 @@ const Errory = props => {
   const style = props.show
     ? {
         right: '4px',
-        opacity: 1
+        opacity: 1,
+        ...props.style
       }
     : {};
 

@@ -11,6 +11,11 @@ const Goals = props =>
       status={goal.status}
       createdOn={goal.createdAt}
       calDays={props.calDays(goal.tracking, goal.from, goal.to)}
+      goalSettingToggle={() => props.settingToggle(props.parentTag, goal._id)}
+      showSetting={props.goalSetting(props.parentTag, goal._id)}
+      clickedMark={() => props.onClickedMark(props.parentTag, goal._id)}
+      clickedDelete={() => props.onClickedDelete(props.parentTag, goal._id)}
+      processing={ props.processing(props.parentTag, goal._id)}
     />
   ));
 

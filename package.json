@@ -33,7 +33,7 @@
   "homepage": "https://github.com/daylay92/ListIt#readme",
   "dependencies": {
     "@hapi/joi": "^16.1.7",
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "concurrently": "^4.1.2",
     "core-js": "^3.3.2",
     "cors": "^2.8.5",
